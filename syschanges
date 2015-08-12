@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ "$(whoami)" != "root" ]; then
+	echo "not root, exiting"
+	exit 1
+fi
+
+loglocation="/etc/syschanges/newinfo"
+
+echo "lspci:
+
+" > $loglocation
+lspci >> $loglocation
+echo "lsblk:
+
+" >> $loglocation
+lsblk >> $loglocation
+echo "lscpu:
+
+" >> $loglocation
+lscpu >> $loglocation
+echo "lsinitramfs:
+
+" >> $loglocation
+lsinitramfs /boot/initrd.img-$(uname --kernel-release) >> $loglocation
+
+diff /etc/syschanges/newinfo /etc/syschanges/current
