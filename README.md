@@ -14,6 +14,7 @@ If you think I should screw off then execute (sudo) bash uninstall.sh
 TODO:
 
 1. Adding encryption / secure signing so that an attacker on the system 
+is less likely to be able to modify this file.
 2. Add immutibility factor to the file (almost a moot point)
 3. Add the ability to update the current log
 4. ???
