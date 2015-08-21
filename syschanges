@@ -17,10 +17,12 @@ lsblk >> $loglocation
 echo "lscpu:
 
 " >> $loglocation
-lscpu >> $loglocation
+lscpu >> $loglocation # This often returns values because of CPU scaling, this is not usualy a security issue.
 echo "lsinitramfs:
 
 " >> $loglocation
 lsinitramfs /boot/initrd.img-$(uname --kernel-release) >> $loglocation
+
+echo "System changes: "
 
 diff /etc/syschanges/newinfo /etc/syschanges/current
