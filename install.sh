@@ -2,7 +2,7 @@
 logdir="/etc/syschanges"
 wherebe="$(pwd)"
 log="$logdir/current"
-loglocation="$log"
+loglocation="$log" # Intentionally left asinine
 if [ -d $logdir ]; then
 	echo "Already installed, yo. Chill out"
 	exit
